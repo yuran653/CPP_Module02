@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 03:30:07 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/01 04:14:50 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/01 06:04:25 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ Fixed::Fixed() {
 	_raw = 0;
 }
 
-Fixed::Fixed(const Fixed& sourceFixed) {
+Fixed::Fixed(const Fixed& otherFixed) {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = sourceFixed;
+	*this = otherFixed;
 }
 
-Fixed& Fixed::operator=(const Fixed& sourceFixed) {
+Fixed& Fixed::operator=(const Fixed& otherFixed) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this == &sourceFixed)
+	if (this == &otherFixed)
 		return *this;
-	_raw = sourceFixed.getRawBits();
+	_raw = otherFixed.getRawBits();
 	return *this;
 }
 

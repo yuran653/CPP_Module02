@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 21:45:14 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/08/01 06:14:14 by jgoldste         ###   ########.fr       */
+/*   Created: 2023/08/01 05:40:32 by jgoldste          #+#    #+#             */
+/*   Updated: 2023/08/01 06:42:59 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,28 @@ Fixed::Fixed(const Fixed& otherFixed) {
 	*this = otherFixed;
 }
 
-Fixed& Fixed::operator = (const Fixed& otherFixed) {
+Fixed& Fixed::operator=(const Fixed& otherFixed) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &otherFixed)
 		return *this;
 	_raw = otherFixed.getRawBits();
 	return *this;
+}
+
+Fixed Fixed::operator + (const Fixed& otherFixed) const {
+	return this->toFloat() + otherFixed.toFloat();
+}
+
+Fixed Fixed::operator - (const Fixed& otherFixed) const {
+	return this->toFloat() - otherFixed.toFloat();
+}
+
+Fixed Fixed::operator * (const Fixed& otherFixed) const {
+	return this->toFloat() * otherFixed.toFloat();
+}
+
+Fixed Fixed::operator / (const Fixed& otherFixed) const {
+	return this->toFloat() / otherFixed.toFloat();
 }
 
 int		Fixed::getRawBits(void) const {
@@ -61,7 +77,7 @@ int		Fixed::toInt(void) const {
 	return _raw >> _fract_bits;
 }
 
-std::ostream& operator << (std::ostream& output, const Fixed& Fixed){
+std::ostream& operator<<(std::ostream& output, const Fixed& Fixed){
 	output << Fixed.toFloat();
 	return output;
 }
