@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 21:45:18 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/07/31 21:49:11 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/08/02 22:52:48 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ main( void ) {
 	Fixed const b(10); Fixed const c(42.42f); Fixed const d(b);
 
 	a = Fixed(1234.4321f);
-
+	
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
